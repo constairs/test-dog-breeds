@@ -1,28 +1,44 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Header />
+    <RouterView />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import Header from '@/components/Header.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    Header,
+  },
+  created() {
+    this.$store.dispatch('getBreedList');
   },
 };
 </script>
 
-<style>
+<style lang="scss">
+body {
+  font-size: 16px;
+  font-family: -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  Roboto,
+  Oxygen-Sans,
+  Ubuntu,
+  Cantarell,
+  "Helvetica Neue",
+  sans-serif;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: #2b2b2b;
+  margin: 4rem auto;
+  max-width: 1200px;
 }
 </style>
